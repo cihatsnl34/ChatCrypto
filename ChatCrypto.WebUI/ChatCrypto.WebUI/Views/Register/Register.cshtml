@@ -1,4 +1,4 @@
-﻿@model ChatCrypto.WebUI.Models.Role_Account
+﻿@model ChatCrypto.WebUI.Models.Account
 
 @{
     Layout = null;
@@ -73,34 +73,34 @@
 
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="input-group custom">
-                                <input type="text" name="Account.Username" class="form-control form-control-lg" placeholder="Kullanıcı Adı">
-                                @Html.ValidationMessageFor(model => model.Account.Username, "", new { @class = "text-danger" })
+                                <input type="text" name="Username" class="form-control form-control-lg" placeholder="Kullanıcı Adı">
+                                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
                                 <div class="input-group-append custom">
                                     <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
                                 </div>
                             </div>
                             <div class="input-group custom">
-                                <input type="text" name="Account.Password" class="form-control form-control-lg" placeholder="Password">
-                                @Html.ValidationMessageFor(model => model.Account.Password, "", new { @class = "text-danger" })
+                                <input type="text" name="Password" class="form-control form-control-lg" placeholder="Password">
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                                 <div class="input-group-append custom">
                                     <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
                                 </div>
                             </div>
                             <div class="input-group custom">
-                                <input type="text" name="Account.Email" class="form-control form-control-lg" placeholder="E-mail">
-                                @Html.ValidationMessageFor(model => model.Account.Email, "", new { @class = "text-danger" })
+                                <input type="text" name="Email" class="form-control form-control-lg" placeholder="E-mail">
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                 <div class="input-group-append custom">
                                     <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
                                 </div>
                             </div>
                             <div class="input-group custom">
-                                <select class="custom-select2 form-control" name="Account.Gender" style="width: 100%; height: 38px;">
+                                <select class="custom-select2 form-control" name="Gender" style="width: 100%; height: 38px;">
                                     <optgroup label="Lütfen Cinsiyet Seçiniz">
                                         <option value="True">Erkek</option>
                                         <option value="False">Kadın</option>
                                     </optgroup>
                                 </select>
-                                @Html.ValidationMessageFor(model => model.Account.Gender, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
                                 <div class="input-group-append custom">
                                     <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
                                 </div>

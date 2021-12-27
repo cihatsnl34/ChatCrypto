@@ -25,7 +25,7 @@ namespace ChatCrypto.WebUI.Controllers
             }
             else
             {
-                Session["User"] = null;
+                Session["Username"] = null;
                 ViewBag.ErrorMessage = "Lütfen şifrenizi veya kullanıcı adınızı doğru girdiğinizden emin olunuz.";
                 return View(data);
             }

@@ -18,17 +18,15 @@ namespace ChatCrypto.WebUI.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Register(Role_Account role_Account)
+        public ActionResult Register(Account account)
         {
             if (ModelState.IsValid)
             {
-
-                role_Account.Role_id = 2;
-                db.Role_Account.Add(role_Account);
+                db.Accounts.Add(account);
                 db.SaveChanges();
                 return RedirectToAction("Login", "Login");
             }
-            return View(role_Account);
+            return View(account);
         }
     }
 }
