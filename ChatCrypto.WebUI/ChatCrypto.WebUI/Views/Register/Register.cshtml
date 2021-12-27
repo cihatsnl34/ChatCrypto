@@ -5,131 +5,148 @@
 }
 
 <!DOCTYPE html>
-
+<html lang="en">
 <html>
 <head>
-    <!-- Basic Page Info -->
-    <meta charset="utf-8">
-    <title>Kayıt Ol</title>
 
-    <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="~/Context/mekasoftware/180x180-M.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="~/Context/mekasoftware/32x32-M.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="~/Context/mekasoftware/16x16-M.PNG">
+    <meta charset="utf-8" />
+    <title>Register</title>
+    
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="~/Context/assets/images/favicon.ico" id="tabIcon">
 
-    <!-- Mobile Specific Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="~/Context/Admin/vendors/styles/core.css">
-    <link rel="stylesheet" type="text/css" href="~/Context/Admin/vendors/styles/icon-font.min.css">
-    <link rel="stylesheet" type="text/css" href="~/Context/Admin/vendors/styles/style.css">
+    <!-- Bootstrap Css -->
+    <link href="~/Context/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="~/Context/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="~/Context/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
 
-        gtag('config', 'UA-119386393-1');
-    </script>
 </head>
-<body class="login-page">
-    <div class="login-header box-shadow">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
-            <div class="brand-logo">
-                <a href="login.html">
-                    <img src="~/Context/mekasoftware/MiniLogo.png" alt="MekaSoftware">
-                </a>
-            </div>
-            <div class="login-menu">
-                <ul>
-                    <li><a href="/" target="_blank"><img src="~/Content/Site/images/doybox_logo-2.png" width="200" /></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 col-lg-7">
-                    <img src="~/Context/Admin/vendors/images/login-page-img.png" alt="MEKASOFTWARE">
-                </div>
-                <div class="col-md-6 col-lg-5">
-                    <div class="login-box bg-white box-shadow border-radius-10">
-                        <div class="login-title">
-                            <h2 class="text-center text-primary">Kayıt Ol</h2>
+<body>
+
+    <div class="auth-bg">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-xl-3 col-lg-4">
+                    <div class="p-4 pb-0 p-lg-5 pb-lg-0 auth-logo-section">
+                        <div class="text-white-50">
+                            
+                                
                         </div>
-                        @using (Html.BeginForm("Register", "Register", FormMethod.Post, new { enctype = "multipart/form-data" }))
-
-                        {
-                            @Html.AntiForgeryToken()
-
-
-
-
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            <div class="input-group custom">
-                                <input type="text" name="Username" class="form-control form-control-lg" placeholder="Kullanıcı Adı">
-                                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
-                                <div class="input-group-append custom">
-                                    <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
-                                </div>
-                            </div>
-                            <div class="input-group custom">
-                                <input type="text" name="Password" class="form-control form-control-lg" placeholder="Password">
-                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                                <div class="input-group-append custom">
-                                    <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
-                                </div>
-                            </div>
-                            <div class="input-group custom">
-                                <input type="text" name="Email" class="form-control form-control-lg" placeholder="E-mail">
-                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                                <div class="input-group-append custom">
-                                    <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
-                                </div>
-                            </div>
-                            <div class="input-group custom">
-                                <select class="custom-select2 form-control" name="Gender" style="width: 100%; height: 38px;">
-                                    <optgroup label="Lütfen Cinsiyet Seçiniz">
-                                        <option value="True">Erkek</option>
-                                        <option value="False">Kadın</option>
-                                    </optgroup>
-                                </select>
-                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
-                                <div class="input-group-append custom">
-                                    <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
-                                </div>
-                            </div>
-
-
-
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="input-group mb-0">
-                                     <button class="btn btn-primary btn-lg btn-block" type="submit">Kayıt Ol</button>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        }
-
-                        <div>
-                           
+                        <div class="mt-auto">
+                            <img src="~/Context/assets/images/auth-img.png" alt="" class="auth-img">
                         </div>
                     </div>
                 </div>
+                <!-- end col -->
+                <div class="col-xl-9 col-lg-8">
+                    <div class="authentication-page-content">
+                        <div class="d-flex flex-column h-100 px-4 pt-4">
+                            <div class="row justify-content-center my-auto">
+                                <div class="col-sm-8 col-lg-6 col-xl-5 col-xxl-4">
+
+                                    <div class="py-md-5 py-4">
+
+                                        <div class="text-center mb-5">
+                                            <h3>Register Account</h3>
+                                            <p class="text-muted">Get your free Chat account now.</p>
+                                        </div>
+                                        @using (Html.BeginForm("Register", "Register", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+                                        {
+                                            @Html.AntiForgeryToken()
+
+
+
+
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <form class="needs-validation" novalidate action="index.html">
+                                        <div class="mb-3">
+                                            <label for="useremail" class="form-label">Email</label>
+                                            <input type="email" name="Email" class="form-control" id="useremail" placeholder="Enter email" required>
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                            <div class="invalid-feedback">
+                                                Please Enter Email
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="username" class="form-label">Username</label>
+                                            <input type="text" name="Username" class="form-control" id="username" placeholder="Enter username" required>
+                                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                            <div class="invalid-feedback">
+                                                Please Enter Username
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="userpassword" class="form-label">Password</label>
+                                            <input type="password" name="Password" class="form-control" id="userpassword" placeholder="Enter password" required>
+                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                            <div class="invalid-feedback">
+                                                Please Enter Password
+                                            </div>
+                                        </div>
+
+
+                                        <div class="mb-3">
+                                            <label for="useremail" class="form-label">Email</label>
+                                            <select name="Gender" class="form-select form-select-sm">
+                                                <option value="True" selected>Male</option>
+                                                <option value="False">Female</option>
+                                            </select>
+                                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                                            <div class="invalid-feedback">
+                                                Please Enter Email
+                                            </div>
+                                        </div>
+
+
+                                        <div class="mb-3">
+                                            <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Register</button>
+                                        </div>
+
+                                        <div class="mt-4 text-center">
+                                            <div class="signin-other-title">
+                                                <h5 class="font-size-14 mb-4 title">Sign up using</h5>
+                                            </div>
+
+                                        </div>
+                                    </form><!-- end form -->
+
+                                            <div class="mt-5 text-center text-muted">
+                                                <p>Already have an account ? <a href="~/Login/Login" class="fw-medium text-decoration-underline">Login</a></p>
+                                            </div>
+                                        }</div>
+                                        </div><!-- end col -->
+                                        } </div><!-- end row -->
+
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end row -->
             </div>
+            <!-- end container-fluid -->
         </div>
-    </div>
-    <script src="~/Context/Admin/vendors/scripts/core.js"></script>
-    <script src="~/Context/Admin/vendors/scripts/script.min.js"></script>
-    <script src="~/Context/Admin/vendors/scripts/process.js"></script>
-    <script src="~/Context/Admin/vendors/scripts/layout-settings.js"></script>
-</body>
+        <!-- end auth bg -->
+
+        <!-- JAVASCRIPT -->
+        <script src="~/Context/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="~/Context/assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="~/Context/assets/libs/node-waves/waves.min.js"></script>
+        <!-- validation init -->
+        <script src="~/Context/assets/js/pages/validation.init.js"></script>
+
+        <!-- theme-style init -->
+        <script src="~/Context/assets/js/pages/theme-style.init.js"></script>
+
+        <script src="~/Context/assets/js/app.js"></script>
+
+    </body>
 </html>

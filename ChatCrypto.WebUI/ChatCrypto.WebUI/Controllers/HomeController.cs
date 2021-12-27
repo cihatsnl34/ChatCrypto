@@ -11,7 +11,7 @@ namespace ChatCrypto.WebUI.Controllers
         private chat_dbEntities db = new chat_dbEntities();
         public ActionResult Index()
         {
-            return View();
+            return View(db.Accounts.ToList());
         }
 
         public ActionResult About()

@@ -603,6 +603,43 @@
     <Content Include="Context\Admin\vendors\styles\icon-font.min.css" />
     <Content Include="Context\Admin\vendors\styles\style.css" />
     <Content Include="Context\Admin\vendors\styles\style.min.css" />
+    <Content Include="Context\assets\css\app.min.css" />
+    <Content Include="Context\assets\css\bootstrap.min.css" />
+    <Content Include="Context\assets\css\icons.min.css" />
+    <Content Include="Context\assets\fonts\boxicons.woff2.html" />
+    <Content Include="Context\assets\fonts\materialdesignicons-webfont.woff2%40v=5.0.45.html" />
+    <Content Include="Context\assets\fonts\remixicon.woff2%40t=1580819880586.html" />
+    <Content Include="Context\assets\images\auth-img.png" />
+    <Content Include="Context\assets\images\bg-pattern\pattern-01.png" />
+    <Content Include="Context\assets\images\bg-pattern\pattern-02.png" />
+    <Content Include="Context\assets\images\bg-pattern\pattern-03.png" />
+    <Content Include="Context\assets\images\bg-pattern\pattern-04.png" />
+    <Content Include="Context\assets\images\bg-pattern\pattern-05.png" />
+    <Content Include="Context\assets\images\bg-pattern\pattern-06.png" />
+    <Content Include="Context\assets\images\bg-pattern\pattern-07.png" />
+    <Content Include="Context\assets\images\bg-pattern\pattern-08.png" />
+    <Content Include="Context\assets\images\bg-pattern\pattern-09.png" />
+    <Content Include="Context\assets\images\favicon.ico" />
+    <Content Include="Context\assets\images\small\img-1.jpg" />
+    <Content Include="Context\assets\images\small\img-2.jpg" />
+    <Content Include="Context\assets\images\small\img-3.jpg" />
+    <Content Include="Context\assets\images\small\img-4.jpg" />
+    <Content Include="Context\assets\images\users\avatar-1.jpg" />
+    <Content Include="Context\assets\images\users\avatar-2.jpg" />
+    <Content Include="Context\assets\images\users\user-dummy-img.jpg" />
+    <Content Include="Context\assets\js\app.js" />
+    <Content Include="Context\assets\js\pages\index.init.js" />
+    <Content Include="Context\assets\js\pages\password-addon.init.js" />
+    <Content Include="Context\assets\js\pages\theme-style.init.js" />
+    <Content Include="Context\assets\js\pages\validation.init.js" />
+    <Content Include="Context\assets\libs\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Context\assets\libs\fg-emoji-picker\fgEmojiPicker.js" />
+    <Content Include="Context\assets\libs\glightbox\css\glightbox.min.css" />
+    <Content Include="Context\assets\libs\glightbox\js\glightbox.min.js" />
+    <Content Include="Context\assets\libs\node-waves\waves.min.js" />
+    <Content Include="Context\assets\libs\simplebar\simplebar.min.js" />
+    <Content Include="Context\assets\libs\swiper\swiper-bundle.min.css" />
+    <Content Include="Context\assets\libs\swiper\swiper-bundle.min.js" />
     <Content Include="Context\css\site.css" />
     <Content Include="Context\favicon.ico" />
     <Content Include="Context\js\site.js" />
@@ -751,6 +788,28 @@
     <Content Include="Context\lib\bootstrap\LICENSE" />
     <Content Include="Context\lib\jquery-validation\LICENSE.md" />
     <Content Include="Context\lib\jquery\dist\jquery.min.map" />
+    <Content Include="Context\assets\fonts\boxicons.eot" />
+    <Content Include="Context\assets\fonts\boxicons.svg%40" />
+    <Content Include="Context\assets\fonts\boxicons.ttf" />
+    <Content Include="Context\assets\fonts\boxicons.woff" />
+    <Content Include="Context\assets\fonts\cerebrisans-bold.eot" />
+    <Content Include="Context\assets\fonts\cerebrisans-bold.woff" />
+    <Content Include="Context\assets\fonts\cerebrisans-light.eot" />
+    <Content Include="Context\assets\fonts\cerebrisans-light.woff" />
+    <Content Include="Context\assets\fonts\cerebrisans-medium.eot" />
+    <Content Include="Context\assets\fonts\cerebrisans-medium.woff" />
+    <Content Include="Context\assets\fonts\cerebrisans-regular.eot" />
+    <Content Include="Context\assets\fonts\cerebrisans-regular.woff" />
+    <Content Include="Context\assets\fonts\cerebrisans-semibold.eot" />
+    <Content Include="Context\assets\fonts\cerebrisans-semibold.woff" />
+    <Content Include="Context\assets\fonts\materialdesignicons-webfont.eot%40" />
+    <Content Include="Context\assets\fonts\materialdesignicons-webfont.eot%40v=5.0.45" />
+    <Content Include="Context\assets\fonts\materialdesignicons-webfont.ttf%40v=5.0.45" />
+    <Content Include="Context\assets\fonts\materialdesignicons-webfont.woff%40v=5.0.45" />
+    <Content Include="Context\assets\fonts\remixicon.eot%40t=1580819880586" />
+    <Content Include="Context\assets\fonts\remixicon.svg%40t=1580819880586" />
+    <Content Include="Context\assets\fonts\remixicon.ttf%40t=1580819880586" />
+    <Content Include="Context\assets\fonts\remixicon.woff%40t=1580819880586" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
