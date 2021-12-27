@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="chat_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Gender" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hash">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="text" />
+        </EntityType>
+        <EntityType Name="Messsage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sender_id" Type="int" />
+          <Property Name="Hash_id" Type="int" />
+          <Property Name="Msg_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="Is_read" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'chat_db.dbo.Role_Account' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Role_Account">
+          <Key>
+            <PropertyRef Name="Is_active" />
+          </Key>
+          <Property Name="Role_id" Type="int" />
+          <Property Name="Account_id" Type="int" />
+          <Property Name="Created_at" Type="datetime" />
+          <Property Name="Is_active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Messsage__Hash_i__412EB0B6">
+          <End Role="Hash" Type="Self.Hash" Multiplicity="0..1" />
+          <End Role="Messsage" Type="Self.Messsage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hash">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Messsage">
+              <PropertyRef Name="Hash_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Messsage__Sender__403A8C7D">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Messsage" Type="Self.Messsage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Messsage">
+              <PropertyRef Name="Sender_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Role_Acco__Accou__2C3393D0">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Role_Account" Type="Self.Role_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Role_Account">
+              <PropertyRef Name="Account_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Role_Acco__Role___2B3F6F97">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Role_Account" Type="Self.Role_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Role_Account">
+              <PropertyRef Name="Role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="chat_dbModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hash" EntityType="Self.Hash" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messsage" EntityType="Self.Messsage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role_Account" EntityType="Self.Role_Account" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Role_Account].[Role_id] AS [Role_id], 
+    [Role_Account].[Account_id] AS [Account_id], 
+    [Role_Account].[Created_at] AS [Created_at], 
+    [Role_Account].[Is_active] AS [Is_active]
+    FROM [dbo].[Role_Account] AS [Role_Account]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Messsage__Hash_i__412EB0B6" Association="Self.FK__Messsage__Hash_i__412EB0B6">
+            <End Role="Hash" EntitySet="Hash" />
+            <End Role="Messsage" EntitySet="Messsage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Messsage__Sender__403A8C7D" Association="Self.FK__Messsage__Sender__403A8C7D">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Messsage" EntitySet="Messsage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Role_Acco__Accou__2C3393D0" Association="Self.FK__Role_Acco__Accou__2C3393D0">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Role_Account" EntitySet="Role_Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Role_Acco__Role___2B3F6F97" Association="Self.FK__Role_Acco__Role___2B3F6F97">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Role_Account" EntitySet="Role_Account" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="chat_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Messsages" Relationship="Self.FK__Messsage__Sender__403A8C7D" FromRole="Account" ToRole="Messsage" />
+          <NavigationProperty Name="Role_Account" Relationship="Self.FK__Role_Acco__Accou__2C3393D0" FromRole="Account" ToRole="Role_Account" />
+        </EntityType>
+        <EntityType Name="Hash">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Messsages" Relationship="Self.FK__Messsage__Hash_i__412EB0B6" FromRole="Hash" ToRole="Messsage" />
+        </EntityType>
+        <EntityType Name="Messsage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sender_id" Type="Int32" />
+          <Property Name="Hash_id" Type="Int32" />
+          <Property Name="Msg_time" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__Messsage__Sender__403A8C7D" FromRole="Messsage" ToRole="Account" />
+          <NavigationProperty Name="Hash" Relationship="Self.FK__Messsage__Hash_i__412EB0B6" FromRole="Messsage" ToRole="Hash" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="Is_read" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Role_Account" Relationship="Self.FK__Role_Acco__Role___2B3F6F97" FromRole="Role" ToRole="Role_Account" />
+        </EntityType>
+        <EntityType Name="Role_Account">
+          <Key>
+            <PropertyRef Name="Is_active" />
+          </Key>
+          <Property Name="Role_id" Type="Int32" />
+          <Property Name="Account_id" Type="Int32" />
+          <Property Name="Created_at" Type="DateTime" Precision="3" />
+          <Property Name="Is_active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__Role_Acco__Accou__2C3393D0" FromRole="Role_Account" ToRole="Account" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__Role_Acco__Role___2B3F6F97" FromRole="Role_Account" ToRole="Role" />
+        </EntityType>
+        <Association Name="FK__Messsage__Sender__403A8C7D">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Messsage" Type="Self.Messsage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Messsage">
+              <PropertyRef Name="Sender_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Role_Acco__Accou__2C3393D0">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Role_Account" Type="Self.Role_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Role_Account">
+              <PropertyRef Name="Account_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Messsage__Hash_i__412EB0B6">
+          <End Role="Hash" Type="Self.Hash" Multiplicity="0..1" />
+          <End Role="Messsage" Type="Self.Messsage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hash">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Messsage">
+              <PropertyRef Name="Hash_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Role_Acco__Role___2B3F6F97">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Role_Account" Type="Self.Role_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Role_Account">
+              <PropertyRef Name="Role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="chat_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="Hashes" EntityType="Self.Hash" />
+          <EntitySet Name="Messsages" EntityType="Self.Messsage" />
+          <EntitySet Name="Notifications" EntityType="Self.Notification" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Role_Account" EntityType="Self.Role_Account" />
+          <AssociationSet Name="FK__Messsage__Sender__403A8C7D" Association="Self.FK__Messsage__Sender__403A8C7D">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Messsage" EntitySet="Messsages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Role_Acco__Accou__2C3393D0" Association="Self.FK__Role_Acco__Accou__2C3393D0">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Role_Account" EntitySet="Role_Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Messsage__Hash_i__412EB0B6" Association="Self.FK__Messsage__Hash_i__412EB0B6">
+            <End Role="Hash" EntitySet="Hashes" />
+            <End Role="Messsage" EntitySet="Messsages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Role_Acco__Role___2B3F6F97" Association="Self.FK__Role_Acco__Role___2B3F6F97">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Role_Account" EntitySet="Role_Account" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="chat_dbModelStoreContainer" CdmEntityContainer="chat_dbEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="chat_dbModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hashes">
+            <EntityTypeMapping TypeName="chat_dbModel.Hash">
+              <MappingFragment StoreEntitySet="Hash">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messsages">
+            <EntityTypeMapping TypeName="chat_dbModel.Messsage">
+              <MappingFragment StoreEntitySet="Messsage">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Sender_id" ColumnName="Sender_id" />
+                <ScalarProperty Name="Hash_id" ColumnName="Hash_id" />
+                <ScalarProperty Name="Msg_time" ColumnName="Msg_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="chat_dbModel.Notification">
+              <MappingFragment StoreEntitySet="Notification">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Is_read" ColumnName="Is_read" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="chat_dbModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role_Account">
+            <EntityTypeMapping TypeName="chat_dbModel.Role_Account">
+              <MappingFragment StoreEntitySet="Role_Account">
+                <ScalarProperty Name="Role_id" ColumnName="Role_id" />
+                <ScalarProperty Name="Account_id" ColumnName="Account_id" />
+                <ScalarProperty Name="Created_at" ColumnName="Created_at" />
+                <ScalarProperty Name="Is_active" ColumnName="Is_active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
