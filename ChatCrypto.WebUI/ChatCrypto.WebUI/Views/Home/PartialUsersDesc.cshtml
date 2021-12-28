@@ -1,0 +1,24 @@
+﻿@model ChatCrypto.WebUI.Models.Account
+
+<div id="personalinfo" class="accordion-collapse collapse show" aria-labelledby="headerpersonalinfo" data-bs-parent="#settingprofile">
+    <div class="accordion-body">
+        <div class="float-end">
+            <button type="button" class="btn btn-soft-primary btn-sm"><i class="bx bxs-pencil align-middle"></i></button>
+        </div>
+
+        <div>
+            <p class="text-muted mb-1">Username</p>
+            <h5 class="font-size-14">@Model.Username</h5>
+        </div>
+        <div>
+            <p class="text-muted mb-1">Gender</p>
+            <h5 class="font-size-14">@Model.Gender</h5>
+        </div>
+        <div class="mt-4">
+            <p class="text-muted mb-1">Email</p>
+            <h5 class="font-size-14">@Model.Email</h5>
+        </div>
+
+
+    </div>
+</div>

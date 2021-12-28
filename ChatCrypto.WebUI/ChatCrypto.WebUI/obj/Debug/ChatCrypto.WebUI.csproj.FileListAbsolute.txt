@@ -83,7 +83,6 @@ C:\Users\cihat\OneDrive\Belgeler\GitHub\ChatCrypto\ChatCrypto.WebUI\ChatCrypto.W
 C:\Users\cihat\OneDrive\Belgeler\GitHub\ChatCrypto\ChatCrypto.WebUI\ChatCrypto.WebUI\bin\tr\System.Web.WebPages.resources.dll
 C:\Users\cihat\OneDrive\Belgeler\GitHub\ChatCrypto\ChatCrypto.WebUI\ChatCrypto.WebUI\bin\tr\System.Web.WebPages.Deployment.resources.dll
 C:\Users\cihat\OneDrive\Belgeler\GitHub\ChatCrypto\ChatCrypto.WebUI\ChatCrypto.WebUI\bin\tr\System.Web.WebPages.Razor.resources.dll
-C:\Users\cihat\OneDrive\Belgeler\GitHub\ChatCrypto\ChatCrypto.WebUI\ChatCrypto.WebUI\obj\Debug\ChatCrypto.WebUI.csproj.AssemblyReference.cache
 C:\Users\cihat\OneDrive\Belgeler\GitHub\ChatCrypto\ChatCrypto.WebUI\ChatCrypto.WebUI\obj\Debug\ChatCrypto.WebUI.csproj.CoreCompileInputs.cache
 C:\Users\cihat\OneDrive\Belgeler\GitHub\ChatCrypto\ChatCrypto.WebUI\ChatCrypto.WebUI\obj\Debug\ChatCrypto.WebUI.csproj.CopyComplete
 C:\Users\cihat\OneDrive\Belgeler\GitHub\ChatCrypto\ChatCrypto.WebUI\ChatCrypto.WebUI\obj\Debug\ChatCrypto.WebUI.dll

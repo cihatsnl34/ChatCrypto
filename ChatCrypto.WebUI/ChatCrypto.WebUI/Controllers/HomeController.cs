@@ -14,7 +14,15 @@ namespace ChatCrypto.WebUI.Controllers
             return View(db.Accounts.ToList());
         }
 
-     
-       
+        public ActionResult PartialUsersList()
+        {
+            return View(db.Accounts.ToList());
+        }
+        public ActionResult PartialUsersDesc(string Username, string Password)
+        {
+            //return View(db.Accounts.Where(x => x.Username == Username && x.Password == Password).ToList());
+            return View();
+        }
+
     }
 }
