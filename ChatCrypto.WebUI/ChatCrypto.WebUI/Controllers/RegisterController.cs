@@ -22,6 +22,13 @@ namespace ChatCrypto.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
+                //db.Accounts.Add(account);
+                //db.SaveChanges();
+                //var data = db.Accounts.Where(x => x.Username == account.Username).FirstOrDefault();
+                //Role_Account o = new Role_Account();
+                //o.Role_id = 2;
+                //o.Account_id = data.ID;
+
                 db.Accounts.Add(account);
                 db.SaveChanges();
                 return RedirectToAction("Login", "Login");
