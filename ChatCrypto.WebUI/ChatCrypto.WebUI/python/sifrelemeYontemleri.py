@@ -34,11 +34,12 @@ class sifrelemeYontemleri2:
 
 class switchs: 
     def switch_demo2(islem, fun, text):
-        switcher = {
-            '0': switchs.switch_demo(fun,text), 
-            '1': switchs.switch_demo1(fun,text)
-        }
-        return switcher.get(islem, "none")
+        if fun == '0':
+            return switchs.switch_demo(fun,text)
+        elif fun == '1':
+            return switchs.switch_demo1(fun,text)
+        else:
+            return
 
     def switch_demo(fun, text):
         switcher = {
@@ -64,7 +65,7 @@ class switchs:
 
 
 def main(argv):
-    new_text = switchs.switch_demo2(argv[0],argv[1], argv[2])
+    new_text = switchs.switch_demo2(argv[0],argv[1],argv[2])
     print(new_text)
     sys.stdout.flush()
 

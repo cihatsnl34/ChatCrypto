@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ChatCrypto.WebUI.Models.Account>
+@{
+    Layout = null;
+}
+<div class="chat-message-list">
+
+    <ul class="list-unstyled chat-list chat-user-list" id="favourite-users">
+        @foreach (var item in Model)
+        {
+            <li>
+                <div class="d-flex ps-3 pe-3">
+                    <div class="flex-grow-1">
+                        <p class="mb-0">@item.Username</p>
+                    </div>
+                    <div class="flex-shrink-0 ms-3">
+                        <i class="bx bxs-circle h6" style="color:limegreen;"></i>
+                    </div>
+                </div>
+                <hr />
+            </li>
+        }
+    </ul>
+</div>

@@ -55,7 +55,7 @@ namespace ChatCrypto.WebUI.Controllers
 
                     // ucuncu arguman sifreleneecl metin
 
-                    string args = "0 0" + account.Password;
+                    string args = " 0 0 " + account.Password;
 
                     start.Arguments = string.Format("{0} {1}", cmd, args);
 

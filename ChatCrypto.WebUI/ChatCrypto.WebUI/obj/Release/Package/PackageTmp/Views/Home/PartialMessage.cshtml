@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ChatCrypto.WebUI.Models.mesgs>
+@{
+    Layout = null;
+}
+
+<div class="chat-conversation p-3 p-lg-4 " id="chat-conversation" data-simplebar>
+    <ul class="list-unstyled chat-conversation-list" id="users-conversation">
+        @foreach (var item in Model)
+        {
+            if (item.username == Session["Username"].ToString())
+            {
+                <li class="chat-list right">
+                    <div class="conversation-list">
+                        <div class="user-chat-content">
+                            <small class="text-muted time">
+                                @item.username
+                            </small>
+                            <div class="ctext-wrap">
+                                <div class="ctext-wrap-content">
+
+                                    <p class="mb-0 ctext-content">
+
+                                        @item.msg
+                                    </p>
+
+
+                                </div>
+                            </div>
+                            <div class="conversation-name">
+                                <small class="text-muted time">
+                                    @item.date
+                                </small>
+                                <span class="text-success check-message-icon"><i class="bx bx-check"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+            else
+            {
+                <li class="chat-list left">
+                    <div class="conversation-list">
+                        <div class="user-chat-content">
+                            <small class="text-muted time">
+                                @item.username
+                            </small>
+                            <div class="ctext-wrap">
+                                <div class="ctext-wrap-content">
+
+                                    <p class="mb-0 ctext-content">
+
+                                        @item.msg
+                                    </p>
+
+
+                                </div>
+                            </div>
+                            <div class="conversation-name">
+                                <small class="text-muted time">
+                                    @item.date
+                                </small>
+                                <span class="text-success check-message-icon"><i class="bx bx-check"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            }
+
+        }
+    </ul>
+</div>
