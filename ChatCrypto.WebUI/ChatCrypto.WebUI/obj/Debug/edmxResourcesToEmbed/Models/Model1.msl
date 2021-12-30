@@ -50,10 +50,19 @@
     <EntitySetMapping Name="Role_Account">
       <EntityTypeMapping TypeName="chat_dbModel.Role_Account">
         <MappingFragment StoreEntitySet="Role_Account">
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Role_id" ColumnName="Role_id" />
           <ScalarProperty Name="Account_id" ColumnName="Account_id" />
           <ScalarProperty Name="Created_at" ColumnName="Created_at" />
           <ScalarProperty Name="Is_active" ColumnName="Is_active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="i_key">
+      <EntityTypeMapping TypeName="chat_dbModel.i_key">
+        <MappingFragment StoreEntitySet="i_key">
+          <ScalarProperty Name="key" ColumnName="key" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

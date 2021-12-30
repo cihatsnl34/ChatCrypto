@@ -52,79 +52,72 @@
 
                                         <div class="text-center mb-5">
                                             <h3>Register Account</h3>
+                                            
                                             <p class="text-muted">Get your free Chat account now.</p>
+                                            <span style="color:red;"> @ViewBag.ErrorMessage</span>
                                         </div>
                                         @using (Html.BeginForm("Register", "Register", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
-                                        {
+                                         {
                                             @Html.AntiForgeryToken()
 
 
 
 
                                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                    <form class="needs-validation" novalidate action="index.html">
-                                        <div class="mb-3">
-                                            <label for="useremail" class="form-label">Email</label>
-                                            <input type="email" name="Email" class="form-control" id="useremail" placeholder="Enter email" required>
-                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                                            <div class="invalid-feedback">
-                                                Please Enter Email
-                                            </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="username" class="form-label">Username</label>
-                                            <input type="text" name="Username" class="form-control" id="username" placeholder="Enter username" required>
-                                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
-                                            <div class="invalid-feedback">
-                                                Please Enter Username
-                                            </div>
-                                        </div>
+                                            <form class="needs-validation" novalidate action="index.html">
+                                                <div class="mb-3">
+                                                    <label for="useremail" class="form-label">Email</label>
+                                                    <input type="email" name="Email" class="form-control" id="useremail" placeholder="Enter email" required>
+                                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                                    <div class="invalid-feedback">
+                                                        Please Enter Email
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="username" class="form-label">Username</label>
+                                                    <input type="text" name="Username" class="form-control" id="username" placeholder="Enter username" required>
+                                                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                                    <div class="invalid-feedback">
+                                                        Please Enter Username
+                                                    </div>
+                                                </div>
 
-                                        <div class="mb-3">
-                                            <label for="userpassword" class="form-label">Password</label>
-                                            <input type="password" name="Password" class="form-control" id="userpassword" placeholder="Enter password" required>
-                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                                            <div class="invalid-feedback">
-                                                Please Enter Password
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mb-3">
-                                            <label for="useremail" class="form-label">Email</label>
-                                            <select name="Gender" class="form-select form-select-sm">
-                                                <option value="True" selected>Male</option>
-                                                <option value="False">Female</option>
-                                            </select>
-                                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
-                                            <div class="invalid-feedback">
-                                                Please Enter Email
-                                            </div>
-                                        </div>
+                                                <div class="mb-3">
+                                                    <label for="userpassword" class="form-label">Password</label>
+                                                    <input type="password" name="Password" class="form-control" id="userpassword" placeholder="Enter password" required>
+                                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                                    <div class="invalid-feedback">
+                                                        Please Enter Password
+                                                    </div>
+                                                </div>
 
 
-                                        <div class="mb-3">
-                                            <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Register</button>
-                                        </div>
+                                                <div class="mb-3">
+                                                    <label for="usergender" class="form-label">Gender</label>
+                                                    <select name="Gender" class="form-select form-select-sm">
+                                                        <option value="True" selected>Male</option>
+                                                        <option value="False">Female</option>
+                                                    </select>
+                                                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                                                    <div class="invalid-feedback">
+                                                        Please Enter Your Gender
+                                                    </div>
+                                                </div>
 
-                                        <div class="mt-4 text-center">
-                                            <div class="signin-other-title">
-                                                <h5 class="font-size-14 mb-4 title">Sign up using</h5>
-                                            </div>
 
-                                        </div>
-                                    </form><!-- end form -->
+                                                <div class="mb-3">
+                                                    <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Register</button>
+                                                </div>
+
+                                            </form><!-- end form -->
 
                                             <div class="mt-5 text-center text-muted">
                                                 <p>Already have an account ? <a href="~/Login/Login" class="fw-medium text-decoration-underline">Login</a></p>
                                             </div>
                                         }</div>
-                                        </div><!-- end col -->
-                                        } </div><!-- end row -->
-
-                                
-
+                                    </div><!-- end col -->
+                                </div><!-- end row -->
                             </div>
                         </div>
                     </div>

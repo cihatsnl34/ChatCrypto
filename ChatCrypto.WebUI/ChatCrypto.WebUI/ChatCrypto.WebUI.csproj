@@ -140,6 +140,10 @@
     <Compile Include="Models\Hash.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\i_key.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mesgs.cs" />
     <Compile Include="Models\Messsage.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -663,14 +667,6 @@
     <Content Include="Context\lib\jquery\dist\jquery.js" />
     <Content Include="Context\lib\jquery\dist\jquery.min.js" />
     <Content Include="Context\lib\jquery\LICENSE.txt" />
-    <Content Include="Context\mekasoftware\16x16-M.PNG" />
-    <Content Include="Context\mekasoftware\180x180-M.png" />
-    <Content Include="Context\mekasoftware\32x32-M.png" />
-    <Content Include="Context\mekasoftware\mini-white-logo.png" />
-    <Content Include="Context\mekasoftware\MiniLogo.png" />
-    <Content Include="Context\mekasoftware\NewLogo.png" />
-    <Content Include="Context\mekasoftware\pdf.png" />
-    <Content Include="Context\mekasoftware\user.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -685,6 +681,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="python\dilKontrol.py" />
+    <Content Include="python\Help.py" />
+    <Content Include="python\sifrelemeYontemleri.py" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Model1.edmx">
@@ -836,10 +835,11 @@
     <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Views\Home\PartialUsersList.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\PartialUsersDesc.cshtml" />
+    <Content Include="Views\Home\PartialMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Message\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -13,15 +13,15 @@ namespace ChatCrypto.WebUI
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            //);
             #region Sayfalar
             routes.MapRoute(
                name: "Anasayfa",
-               url: "",
+               url: "{controller}/{action}/{id}",
                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
            );
             routes.MapRoute(
@@ -34,6 +34,11 @@ namespace ChatCrypto.WebUI
                url: "",
                defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
            );
+            routes.MapRoute(
+              name: "Logout",
+              url: "",
+              defaults: new { controller = "Login", action = "Logout", id = UrlParameter.Optional }
+            );
             #endregion
             #region parçalı sayfalar
             routes.MapRoute(
@@ -46,7 +51,18 @@ namespace ChatCrypto.WebUI
               url: "PartialUsersDesc",
               defaults: new { controller = "Home", action = "PartialUsersDesc", id = UrlParameter.Optional }
           );
+            routes.MapRoute(
+              name: "PartialMessage",
+              url: "PartialMessage",
+              defaults: new { controller = "Home", action = "PartialMessage", id = UrlParameter.Optional }
+          );
+            routes.MapRoute(
+              name: "GetMessage",
+              url: "GetMessage",
+              defaults: new { controller = "Home", action = "GetMessage", id = UrlParameter.Optional }
+          );
             #endregion
+
         }
     }
 }

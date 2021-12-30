@@ -17,6 +17,13 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Content" Type="text" />
   </EntityType>
+  <EntityType Name="i_key">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="key" Type="text" />
+  </EntityType>
   <EntityType Name="Messsage">
     <Key>
       <PropertyRef Name="ID" />
@@ -41,12 +48,11 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'chat_db.dbo.Role_Account' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Role_Account">
     <Key>
-      <PropertyRef Name="Is_active" />
+      <PropertyRef Name="ID" />
     </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Role_id" Type="int" />
     <Property Name="Account_id" Type="int" />
     <Property Name="Created_at" Type="datetime" />
@@ -103,17 +109,11 @@ warning 6002: The table/view 'chat_db.dbo.Role_Account' does not have a primary 
   <EntityContainer Name="chat_dbModelStoreContainer">
     <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Hash" EntityType="Self.Hash" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="i_key" EntityType="Self.i_key" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Messsage" EntityType="Self.Messsage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Role_Account" EntityType="Self.Role_Account" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Role_Account].[Role_id] AS [Role_id], 
-    [Role_Account].[Account_id] AS [Account_id], 
-    [Role_Account].[Created_at] AS [Created_at], 
-    [Role_Account].[Is_active] AS [Is_active]
-    FROM [dbo].[Role_Account] AS [Role_Account]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="Role_Account" EntityType="Self.Role_Account" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Messsage__Hash_i__412EB0B6" Association="Self.FK__Messsage__Hash_i__412EB0B6">
       <End Role="Hash" EntitySet="Hash" />
       <End Role="Messsage" EntitySet="Messsage" />

@@ -2,28 +2,22 @@
 @{
     Layout = null;
 }
-@foreach (var item in Model)
-{
-    <h5 class="mb-3 px-4 mt-4 font-size-11 text-muted text-uppercase">@item.Username</h5>
-    <div class="chat-message-list">
+<div class="chat-message-list">
 
-        <ul class="list-unstyled chat-list chat-user-list" id="favourite-users">
-        </ul>
-    </div>
-
-
-
-    <div class="chat-message-list">
-
-        <ul class="list-unstyled chat-list chat-user-list" id="usersList">
-        </ul>
-    </div>
-
-
-
-    <div class="chat-message-list">
-
-        <ul class="list-unstyled chat-list chat-user-list mb-3" id="channelList">
-        </ul>
-    </div>
-}
+    <ul class="list-unstyled chat-list chat-user-list" id="favourite-users">
+        @foreach (var item in Model)
+        {
+            <li>
+                <div class="d-flex ps-3 pe-3">
+                    <div class="flex-grow-1">
+                        <p class="mb-0">@item.Username</p>
+                    </div>
+                    <div class="flex-shrink-0 ms-3">
+                        <i class="bx bxs-circle h6" style="color:limegreen;"></i>
+                    </div>
+                </div>
+                <hr />
+            </li>
+        }
+    </ul>
+</div>

@@ -49,7 +49,7 @@
   </EntityType>
   <EntityType Name="Role_Account">
     <Key>
-      <PropertyRef Name="Is_active" />
+      <PropertyRef Name="ID" />
     </Key>
     <Property Name="Role_id" Type="Int32" />
     <Property Name="Account_id" Type="Int32" />
@@ -57,6 +57,7 @@
     <Property Name="Is_active" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Account" Relationship="Self.FK__Role_Acco__Accou__2C3393D0" FromRole="Role_Account" ToRole="Account" />
     <NavigationProperty Name="Role" Relationship="Self.FK__Role_Acco__Role___2B3F6F97" FromRole="Role_Account" ToRole="Role" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
   <Association Name="FK__Messsage__Sender__403A8C7D">
     <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
@@ -129,5 +130,13 @@
       <End Role="Role" EntitySet="Roles" />
       <End Role="Role_Account" EntitySet="Role_Account" />
     </AssociationSet>
+    <EntitySet Name="i_key" EntityType="chat_dbModel.i_key" />
   </EntityContainer>
+  <EntityType Name="i_key">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="key" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

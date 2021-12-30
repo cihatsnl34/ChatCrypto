@@ -31,5 +31,6 @@ namespace ChatCrypto.WebUI.Models
         public virtual DbSet<Notification> Notifications { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Role_Account> Role_Account { get; set; }
+        public virtual DbSet<i_key> i_key { get; set; }
     }
 }

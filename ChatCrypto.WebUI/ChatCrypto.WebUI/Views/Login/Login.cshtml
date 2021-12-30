@@ -46,6 +46,7 @@
                                         <div class="text-center mb-5">
                                             <h3>Welcome Back !</h3>
                                             <p class="text-muted">Sign in to continue to chat.</p>
+                                            <span style="color:red;">@ViewBag.ErrorMessage</span>
                                         </div>
                                         <form action="/Login/Login" method="post">
                                             <div class="mb-3">
@@ -71,12 +72,6 @@
 
                                             <div class="text-center mt-4">
                                                 <button class="btn btn-primary w-100" type="submit">Log In</button>
-                                            </div>
-                                            <div class="mt-4 text-center">
-                                                <div class="signin-other-title">
-                                                    <h5 class="font-size-14 mb-4 title">Sign in with</h5>
-                                                </div>
-                                               
                                             </div>
                                         </form><!-- end form -->
 

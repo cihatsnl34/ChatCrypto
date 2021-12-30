@@ -15,6 +15,7 @@
         <AssociationConnector Association="chat_dbModel.FK__Role_Acco__Accou__2C3393D0" ManuallyRouted="false" />
         <AssociationConnector Association="chat_dbModel.FK__Messsage__Hash_i__412EB0B6" ManuallyRouted="false" />
         <AssociationConnector Association="chat_dbModel.FK__Role_Acco__Role___2B3F6F97" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="chat_dbModel.i_key" Width="1.5" PointX="5.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
