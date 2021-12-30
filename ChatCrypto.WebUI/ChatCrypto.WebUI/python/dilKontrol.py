@@ -30,17 +30,18 @@ class dilKontrol:
             if (sum(kelime.count(kalin) for kalin in kalin_unluler)) != 0 or (sum(kelime.count(ince) for ince in ince_unluler)) != 0:  
                b+=1
         return b
-
-
-
+try:
+    paragraf=input("Cümle Giriniz: ").lower()
+    cumle=dilKontrol.CumleSayisi(paragraf)
+    kelime=dilKontrol.Kelimesayisi(paragraf)
+    SesliHarf=dilKontrol.Sesliharfbul(paragraf)
+    Unluuyumu=dilKontrol.Unluuyumu(paragraf)
+    print("Cümle Sayısı: "+ str(cumle))
+    print("Kelime Sayı: "+str(kelime))
+    print("Sesli Harf Sayı: "+str(SesliHarf))
+    print("Ünlü Uyumumuna Uyan Kelime Sayısı: "+str(Unluuyumu))
+except RuntimeError:
+    print("Program çalışırken beklenmedik bir hata ile karşılaşıldı")
                     
-paragraf=input("Cümle Giriniz: ").lower()
-cumle=dilKontrol.CumleSayisi(paragraf)
-kelime=dilKontrol.Kelimesayisi(paragraf)
-SesliHarf=dilKontrol.Sesliharfbul(paragraf)
-Unluuyumu=dilKontrol.Unluuyumu(paragraf)
-print("Cümle Sayısı: "+ str(cumle))
-print("Kelime Sayı: "+str(kelime))
-print("Sesli Harf Sayı: "+str(SesliHarf))
-print("Ünlü Uyumumuna Uyan Kelime Sayısı: "+str(Unluuyumu))
+
 
