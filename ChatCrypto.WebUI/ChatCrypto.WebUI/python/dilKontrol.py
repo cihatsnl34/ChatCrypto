@@ -33,14 +33,16 @@ class dilKontrol:
 
 
 
-                    
-paragraf=input("Cümle Giriniz: ").lower()
-cumle=dilKontrol.CumleSayisi(paragraf)
-kelime=dilKontrol.Kelimesayisi(paragraf)
-SesliHarf=dilKontrol.Sesliharfbul(paragraf)
-Unluuyumu=dilKontrol.Unluuyumu(paragraf)
-print("Cümle Sayısı: "+ str(cumle))
-print("Kelime Sayı: "+str(kelime))
-print("Sesli Harf Sayı: "+str(SesliHarf))
-print("Ünlü Uyumumuna Uyan Kelime Sayısı: "+str(Unluuyumu))
+try:
+    paragraf=input("Cümle Giriniz: ").lower()
+    cumle=dilKontrol.CumleSayisi(paragraf)
+    kelime=dilKontrol.Kelimesayisi(paragraf)
+    SesliHarf=dilKontrol.Sesliharfbul(paragraf)
+    Unluuyumu=dilKontrol.Unluuyumu(paragraf)
+    print("Cümle Sayısı: "+ str(cumle))
+    print("Kelime Sayı: "+str(kelime))
+    print("Sesli Harf Sayı: "+str(SesliHarf))
+    print("Ünlü Uyumumuna Uyan Kelime Sayısı: "+str(Unluuyumu))
+except RuntimeError:
+    print("Program çalışırken beklenmedik bir hata ile karşılaşıldı")
 

@@ -65,9 +65,12 @@ class switchs:
 
 
 def main(argv):
-    new_text = switchs.switch_demo2(argv[0],argv[1],argv[2])
-    print(new_text)
-    sys.stdout.flush()
+    try:   
+        new_text = switchs.switch_demo2(argv[0],argv[1], argv[2])
+        print(new_text)
+        sys.stdout.flush()  
+    except ValueError:
+        print("Gönderilen Değişkenler Eksik")
 
     
 
